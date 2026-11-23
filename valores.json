@@ -1,0 +1,15 @@
+{
+  "_nota": "Valores de Tlatelolco en JADE equivalente. Las bendiciones y las alas se calculan con su costo esperado real; lo marcado PROPUESTA se puede cambiar. 'ajustes' permite corregir a mano cualquier objeto por su Id: {\"valor\": número} o {\"demanda\": multiplicador}.",
+  "unidad": "jade",
+  "umbralJusto": 0.10,
+  "bendiciones": { "metodo": "costo_esperado", "_explica": "valor = precio de la ofrenda ÷ probabilidad de ver esa bendición en las 3 cartas de su dios" },
+  "ofrendas": { "valorPorOfrenda": 60 },
+  "pocimas": { "_explica": "precio unitario del mercado (pócimas ×3 y curación)" },
+  "cosmeticos": {
+    "precioCaja": { "alas": 60, "ceremonial": 60, "comica": 60, "_estado": "PROPUESTA: precio en jade de cada caja (aún no definido)" },
+    "probAlas": { "ALA_001": 0.01, "ALA_002": 0.99 },
+    "valorPorRareza": { "comun": 25, "normal": 75, "epico": 250, "legendario": 900, "mitico": 3500, "_estado": "PROPUESTA: las cajas ceremonial y cómica aún no tienen probabilidades" },
+    "noComerciables": ["top_global"]
+  },
+  "ajustes": {}
+}

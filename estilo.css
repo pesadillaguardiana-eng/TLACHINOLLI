@@ -1,0 +1,146 @@
+/* TLACHINOLLI · estética del juego: piedra oscura, oro envejecido, jade, grecas. */
+:root {
+  --obsidiana: #14110f; --piedra: #221d19; --piedra2: #2c2621; --piedra3: #3a322b;
+  --oro: #d9a845; --oro-claro: #f2d28a; --oro-osc: #8a6a2a; --hueso: #efe3c8; --tenue: #a89a84;
+  --jade: #2fb59a; --jade-osc: #1a7a64; --rojo: #c0392b; --rojo-claro: #e05a48; --verde: #4caf7a;
+  --radio: 6px; --sombra: 0 8px 24px rgba(0,0,0,.45);
+  --titulo: 'Sarpanch', 'Montserrat', sans-serif; --texto: 'Montserrat', system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: linear-gradient(rgba(16,13,11,.93), rgba(16,13,11,.93)), url(img/ui/Piedra.png) var(--obsidiana); background-attachment: fixed; color: var(--hueso);
+  font: 15px/1.6 var(--texto); min-height: 100vh; display: flex; flex-direction: column;
+}
+a { color: var(--oro-claro); text-decoration: none; }
+a:hover { color: #fff; }
+h1, h2, h3, h4 { font-family: var(--titulo); letter-spacing: .04em; color: var(--oro); margin: 0 0 .5em; line-height: 1.15; }
+h1 { font-size: clamp(2rem, 5vw, 3.4rem); text-transform: uppercase; }
+h2 { font-size: 1.6rem; text-transform: uppercase; }
+h3 { font-size: 1.15rem; }
+p { margin: 0 0 .8em; }
+.tenue { color: var(--tenue); font-size: .88rem; }
+.greca { height: 16px; background: url(img/ui/Greca.png) repeat-x; background-size: auto 16px; image-rendering: pixelated; }
+
+/* ---------- barra superior */
+.barra {
+  position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 1rem; padding: .55rem 1.2rem;
+  background: linear-gradient(#1b1714, #120f0d); border-bottom: 2px solid var(--oro-osc); box-shadow: var(--sombra);
+}
+.marca { display: flex; align-items: center; gap: .55rem; font: 800 1.25rem var(--titulo); letter-spacing: .08em; color: var(--oro); white-space: nowrap; }
+.marca img { width: 30px; height: 30px; }
+.nav { display: flex; flex-wrap: wrap; gap: .15rem; margin-left: auto; }
+.nav a { padding: .4rem .65rem; border-radius: var(--radio); color: var(--hueso); font-weight: 600; font-size: .86rem; border: 1px solid transparent; }
+.nav a:hover { border-color: var(--oro-osc); }
+.nav a.activa { background: var(--jade-osc); border-color: var(--jade); color: #fff; }
+.nav a.tlatelolco { color: var(--oro-claro); border-color: var(--oro-osc); }
+.menu-btn { display: none; margin-left: auto; background: none; border: 1px solid var(--oro-osc); color: var(--oro); font-size: 1.3rem; border-radius: var(--radio); padding: .1rem .6rem; }
+@media (max-width: 980px) {
+  .menu-btn { display: block; }
+  .nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: #16120f; padding: .6rem; border-bottom: 2px solid var(--oro-osc); }
+  body.nav-abierta .nav { display: flex; }
+}
+
+/* ---------- contenido */
+main { flex: 1; width: min(1180px, 100%); margin: 0 auto; padding: 1.6rem 1.2rem 3rem; outline: none; }
+.panel {
+  position: relative; background: linear-gradient(180deg, rgba(44,38,33,.96), rgba(30,26,22,.97)); border: 1px solid var(--oro-osc);
+  border-radius: var(--radio); padding: 1.4rem 1.5rem; margin-bottom: 1.4rem; box-shadow: var(--sombra);
+}
+.panel::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 8px; background: url(img/ui/Greca.png) repeat-x; background-size: auto 8px; image-rendering: pixelated; border-radius: var(--radio) var(--radio) 0 0; opacity: .85; }
+.panel { padding-top: 1.8rem; }
+.panel > h2:first-child { border-bottom: 1px solid var(--oro-osc); padding-bottom: .4rem; }
+.rejilla { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.rejilla.chica { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
+.tarjeta { background: var(--piedra2); border: 1px solid var(--piedra3); border-radius: var(--radio); padding: .9rem 1rem; position: relative; overflow: hidden; }
+.tarjeta h3 { margin-bottom: .25rem; }
+.tarjeta .acento { position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
+.etiqueta { display: inline-block; padding: .08rem .5rem; border-radius: 999px; font-size: .74rem; font-weight: 700; letter-spacing: .03em; margin: 0 .25rem .25rem 0; border: 1px solid rgba(255,255,255,.15); }
+.cifra { font: 800 1.6rem var(--titulo); color: var(--oro-claro); }
+
+/* portada */
+.portada {
+  position: relative; border-radius: var(--radio); overflow: hidden; margin-bottom: 1.6rem; min-height: 340px; display: flex; align-items: flex-end;
+  background: linear-gradient(90deg, rgba(16,13,11,.96) 0%, rgba(16,13,11,.80) 45%, rgba(16,13,11,.15) 100%), url(img/misiones/tlacopan.jpg) right center/cover; border: 1px solid var(--oro-osc); box-shadow: var(--sombra);
+}
+.portada .dentro { padding: 2rem; max-width: 760px; }
+.portada p { font-size: 1.05rem; }
+.boton {
+  display: inline-block; padding: .65rem 1.2rem; border-radius: var(--radio); font: 700 .95rem var(--texto); cursor: pointer; border: 1px solid var(--oro);
+  background: linear-gradient(#e0b65a, #b08530); color: #1b1408; margin: .3rem .4rem 0 0;
+}
+.boton.sec { background: rgba(0,0,0,.35); color: var(--oro-claro); }
+.boton:hover { filter: brightness(1.1); color: #1b1408; }
+.boton.sec:hover { color: #fff; }
+
+/* tablas */
+.tabla-wrap { overflow-x: auto; margin-bottom: 1rem; border: 1px solid var(--piedra3); border-radius: var(--radio); }
+table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+th, td { padding: .45rem .6rem; text-align: left; border-bottom: 1px solid var(--piedra3); white-space: nowrap; }
+th { background: #1a1613; color: var(--oro); font-family: var(--titulo); font-weight: 600; letter-spacing: .03em; position: sticky; top: 0; }
+tr:nth-child(even) td { background: rgba(255,255,255,.02); }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+th.ord { cursor: pointer; } th.ord:hover { color: #fff; }
+
+/* filtros */
+.filtros { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 1rem; }
+input[type=search], input[type=number], select {
+  background: #15120f; color: var(--hueso); border: 1px solid var(--oro-osc); border-radius: var(--radio); padding: .5rem .7rem; font: 500 .9rem var(--texto);
+}
+input[type=search] { min-width: 220px; flex: 1; }
+.chip { padding: .3rem .7rem; border-radius: 999px; border: 1px solid var(--piedra3); background: var(--piedra2); color: var(--hueso); cursor: pointer; font: 600 .8rem var(--texto); }
+.chip.on { border-color: var(--jade); background: var(--jade-osc); color: #fff; }
+
+/* bendiciones */
+.bendicion { border-left: 4px solid; }
+.bendicion .valor { position: absolute; right: .8rem; top: .7rem; font: 700 .8rem var(--texto); color: var(--oro-claro); }
+
+/* misiones */
+.mision { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.mision img { order: -1; width: 100%; height: 210px; object-fit: cover; object-position: center 60%; border-bottom: 1px solid var(--oro-osc); }
+.mision .txt { padding: 1rem 1.1rem; }
+
+/* cosméticos */
+.cosmetico img { width: 100%; aspect-ratio: 9/10; object-fit: cover; border-radius: 4px; background: #1a1613; }
+
+/* Tlatelolco */
+.trueque { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 860px) { .trueque { grid-template-columns: 1fr; } }
+.lado { background: var(--piedra2); border: 1px solid var(--piedra3); border-radius: var(--radio); padding: 1rem; min-height: 220px; }
+.lado h3 { display: flex; justify-content: space-between; align-items: baseline; }
+.lado .total { font: 800 1.3rem var(--titulo); color: var(--oro-claro); }
+.buscador { position: relative; margin-bottom: .7rem; }
+.buscador input { width: 100%; }
+.sugerencias { position: absolute; z-index: 10; left: 0; right: 0; top: 100%; max-height: 300px; overflow-y: auto; background: #15120f; border: 1px solid var(--oro-osc); border-radius: 0 0 var(--radio) var(--radio); display: none; }
+.sugerencias.abierta { display: block; }
+.sugerencias button { display: flex; width: 100%; justify-content: space-between; gap: .6rem; padding: .45rem .7rem; border: 0; background: none; color: var(--hueso); font: 500 .88rem var(--texto); cursor: pointer; text-align: left; }
+.sugerencias button:hover, .sugerencias button.sel { background: var(--jade-osc); }
+.renglon { display: grid; grid-template-columns: 1fr 70px 90px 28px; gap: .4rem; align-items: center; padding: .35rem 0; border-bottom: 1px solid var(--piedra3); font-size: .9rem; }
+.renglon input { width: 100%; padding: .25rem .4rem; }
+.renglon .quitar { background: none; border: 0; color: var(--rojo-claro); font-size: 1.1rem; cursor: pointer; }
+.veredicto { margin-top: 1rem; padding: 1rem 1.2rem; border-radius: var(--radio); border: 1px solid; text-align: center; }
+.veredicto .grande { font: 800 1.6rem var(--titulo); display: block; }
+.veredicto.gana { border-color: var(--verde); background: rgba(76,175,122,.12); color: #9fe0b8; }
+.veredicto.justo { border-color: var(--oro); background: rgba(217,168,69,.10); color: var(--oro-claro); }
+.veredicto.pierde { border-color: var(--rojo); background: rgba(192,57,43,.12); color: #f2a89c; }
+.balanza { height: 14px; border-radius: 999px; background: #15120f; border: 1px solid var(--piedra3); overflow: hidden; display: flex; margin: .8rem 0 .2rem; }
+.balanza div { height: 100%; }
+.aviso { border-left: 4px solid var(--oro); background: rgba(217,168,69,.08); padding: .7rem 1rem; border-radius: 0 var(--radio) var(--radio) 0; margin-bottom: 1rem; }
+kbd { background: #15120f; border: 1px solid var(--oro-osc); border-bottom-width: 2px; border-radius: 4px; padding: 0 .35rem; font: 600 .8rem var(--texto); color: var(--oro-claro); }
+
+.pie { text-align: center; padding: 0 1rem 1.2rem; color: var(--tenue); font-size: .85rem; background: #110e0c; }
+.pie .greca { margin-bottom: 1rem; }
+
+/* ajustes de ancho */
+.trueque > *, .rejilla > *, .panel { min-width: 0; }
+body { overflow-x: hidden; }
+.rejilla.dioses { grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); }
+.rejilla.dioses th { white-space: normal; font-size: .78rem; }
+@media (max-width: 600px) {
+  main { padding: 1rem .6rem 2rem; }
+  .panel { padding: 1.5rem .9rem .9rem; }
+  .rejilla.dioses { grid-template-columns: 1fr; }
+  .renglon { grid-template-columns: 1fr 56px 64px 24px; font-size: .82rem; }
+  input[type=search] { min-width: 0; }
+  .portada .dentro { padding: 1.2rem; }
+}

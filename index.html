@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TLACHINOLLI · Wiki y Tlatelolco</title>
+<meta name="description" content="Wiki oficial de TLACHINOLLI (Roblox): misiones, calaveras, enemigos, bendiciones, ofrendas, progresión, mercado, cosméticos y la calculadora de trueques de Tlatelolco.">
+<link rel="icon" href="img/ui/Chalchihuite.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarpanch:wght@600;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<header class="barra">
+  <a class="marca" href="#/"><img src="img/ui/Chalchihuite.png" alt=""><span>TLACHINOLLI</span></a>
+  <button class="menu-btn" aria-label="Menú" onclick="document.body.classList.toggle('nav-abierta')">☰</button>
+  <nav class="nav" id="nav"></nav>
+</header>
+<main id="app" tabindex="-1"></main>
+<footer class="pie">
+  <div class="greca"></div>
+  <p>TLACHINOLLI · TĒYOLCA · Wiki no oficial generada con los datos del juego. <span id="generado"></span></p>
+  <p class="tenue">Los nombres y aspectos ceremoniales son propuestas creativas, no reconstrucciones históricas.</p>
+</footer>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
